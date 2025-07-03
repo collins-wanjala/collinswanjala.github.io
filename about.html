@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me - MyPortfolio</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .header-section {
+      background: #007BFF;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .header-section h1 {
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .experience-btn {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: default;
+      display: inline-block;
+      margin: 2rem 0;
+      box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .experience-btn:hover {
+      background-color: #0056b3;
+    }
+    .download-cv {
+      display: inline-block;
+      background-color: #28a745;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1rem;
+      box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
+      transition: background-color 0.3s ease;
+    }
+    .download-cv:hover {
+      background-color: #1e7e34;
+    }
+    @media screen and (max-width: 600px) {
+      .experience-btn {
+        width: 100%;
+        font-size: 1.25rem;
+      }
+      .download-cv {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header-section w3-card-4 w3-round-large">
+    <h1>About Me</h1>
+  </header>
+
+  <main class="content w3-white w3-card-4 w3-round-large w3-padding-large">
+    <p style="font-size:1.1rem; text-align: justify; line-height: 1.6;">
+      I'm a full-stack web developer with over 4 years of experience in designing, building, and maintaining websites and web applications.
+      My expertise lies in creating responsive, accessible, and user-friendly designs that meet clients' needs and exceed expectations.
+    </p>
+    <p style="font-size:1.1rem; text-align: justify; line-height: 1.6;">
+      I enjoy learning new technologies and constantly improving my skillset. Whether it's front-end frameworks, back-end development, or UX/UI design,
+      I strive to deliver high-quality work with a focus on performance and usability.
+    </p>
+    <p style="font-size:1.1rem; text-align: justify; line-height: 1.6;">
+      When I'm not coding, I love blogging about tech trends, sharing tutorials, and contributing to open source projects.
+    </p>
+
+    <!-- Years of Experience Button -->
+    <button aria-label="Years of experience" id="experienceBtn" class="experience-btn" tabindex="0">
+      0 Years of Experience
+    </button>
+
+    <br />
+
+    <!-- Download CV Button -->
+    <a href="your-cv.pdf" download class="download-cv" aria-label="Download CV">Download My CV</a>
+  </main>
+
+  <script>
+    // Animate years from 0 to maxYears
+    const maxYears = 4;
+    const experienceBtn = document.getElementById('experienceBtn');
+    let current = 0;
+
+    function incrementYears() {
+      if (current < maxYears) {
+        current++;
+        experienceBtn.textContent = current + (current === 1 ? ' Year of Experience' : ' Years of Experience');
+        setTimeout(incrementYears, 300);
+      }
+    }
+
+    window.addEventListener('load', () => {
+      incrementYears();
+    });
+  </script>
+</body>
+</html>
