@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Network Engineer Portfolio</title>
+
+<!-- W3.CSS for styling -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 0;
+  }
+  header, footer {
+    background: #003366;
+    color: white;
+  }
+  header h1, footer p {
+    margin: 0.5rem;
+  }
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 1rem;
+  }
+  .project-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+  }
+  .project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  .project-content {
+    padding: 1rem;
+  }
+  .project-title {
+    font-weight: 700;
+    color: #003366;
+    margin: 0 0 0.5rem 0;
+  }
+  .project-description {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  .project-link {
+    margin-top: 1rem;
+    display: inline-block;
+    background: #007acc;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  .project-link:hover {
+    background: #004a80;
+  }
+  /* Responsive grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 1.5rem;
+  }
+  /* WWW animation */
+  .animated-www {
+    font-weight: 900;
+    font-size: 3rem;
+    text-align: center;
+    margin: 2rem 0;
+    color: #007acc;
+    letter-spacing: 10px;
+    animation: wave 3s ease-in-out infinite;
+  }
+  @keyframes wave {
+    0%, 100% { letter-spacing: 10px; color: #007acc; }
+    50% { letter-spacing: 25px; color: #004a80; }
+  }
+
+  /* Responsive iframe for Google map */
+  .map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin: 2rem 0;
+  }
+  .map-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
+</head>
+<body>
+
+<header class="w3-container w3-center">
+  <h1>My Network Engineer Portfolio</h1>
+</header>
+
+<div class="container">
+
+  <div class="animated-www">WWW</div>
+
+  <section aria-label="Projects" class="projects-grid">
+
+    <!-- Project 1 -->
+    <article class="project-card" tabindex="0">
+      <img src="https://www.example.com/images/aws-vpc.jpg" alt="AWS VPC Setup" class="project-image" />
+      <div class="project-content">
+        <h2 class="project-title">AWS VPC Setup</h2>
+        <p class="project-description">Designed and deployed a secure, scalable Virtual Private Cloud with public and private subnets, routing tables, and NAT gateways.</p>
+        <a href="https://aws.amazon.com/vpc/" target="_blank" rel="noopener" class="project-link">View Project</a>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project-card" tabindex="0">
+      <img src="https://www.example.com/images/fortinet-firewall.jpg" alt="Fortinet Firewall Deployment" class="project-image" />
+      <div class="project-content">
+        <h2 class="project-title">Fortinet Firewall Deployment</h2>
+        <p class="project-description">Implemented a Fortinet firewall solution for enterprise-grade network security with VPN and threat prevention features.</p>
+        <a href="https://www.fortinet.com/products/firewall" target="_blank" rel="noopener" class="project-link">View Project</a>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-card" tabindex="0">
+      <img src="https://www.example.com/images/cisco-switching.jpg" alt="Cisco Switching Setup" class="project-image" />
+      <div class="project-content">
+        <h2 class="project-title">Cisco Switching Setup</h2>
+        <p class="project-description">Configured Cisco Catalyst switches with VLAN segmentation and QoS to optimize network traffic flow in a large campus environment.</p>
+        <a href="https://www.cisco.com/c/en/us/products/switches/index.html" target="_blank" rel="noopener" class="project-link">View Project</a>
+      </div>
+    </article>
+
+    <!-- Project 4 -->
+    <article class="project-card" tabindex="0">
+      <img src="https://www.example.com/images/network-monitoring.jpg" alt="Network Monitoring Solution" class="project-image" />
+      <div class="project-content">
+        <h2 class="project-title">Network Monitoring Solution</h2>
+        <p class="project-description">Deployed SolarWinds network monitoring to ensure uptime and optimize performance with real-time alerts and analytics.</p>
+        <a href="https://www.solarwinds.com/network-performance-monitor" target="_blank" rel="noopener" class="project-link">View Project</a>
+      </div>
+    </article>
+
+    <!-- Project 5 -->
+    <article class="project-card" tabindex="0">
+      <img src="https://www.example.com/images/vpn-setup.jpg" alt="VPN Setup" class="project-image" />
+      <div class="project-content">
+        <h2 class="project-title">Site-to-Site VPN Setup</h2>
+        <p class="project-description">Configured a secure site-to-site VPN tunnel between remote offices using Cisco ASA firewalls for encrypted communication.</p>
+        <a href="https://www.cisco.com/c/en/us/products/security/asa-firewall/index.html" target="_blank" rel="noopener" class="project-link">View Project</a>
+      </div>
+    </article>
+
+    <!-- Project 6 -->
+    <article class="project-card" tabindex="0">
+      <img src="https://www.example.com/images/dhcp-implementation.jpg" alt="DHCP Implementation" class="project-image" />
+      <div class="project-content">
+        <h2 class="project-title">DHCP Server Implementation</h2>
+        <p class="project-description">Implemented centralized DHCP servers to automate IP address allocation and reduce configuration errors across multiple subnets.</p>
+        <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol" target="_blank" rel="noopener" class="project-link">View Project</a>
+      </div>
+    </article>
+
+    <!-- Project 7 -->
+    <article class="project-card" tabindex="0">
+      <img src="https://www.example.com/images/fortigate-vpn.jpg" alt="Fortigate VPN Setup" class="project-image" />
+      <div class="project-content">
+        <h2 class="project-title">Fortigate VPN Setup</h2>
+        <p class="project-description">Configured Fortigate SSL VPN for secure remote access with multi-factor authentication and centralized management.</p>
+        <a href="https://www.fortinet.com/products/vpn" target="_blank" rel="noopener" class="project-link">View Project</a>
+      </div>
+    </article>
+
+    <!-- Project 8 -->
+    <article class="project-card" tabindex="0">
+      <img src="https://www.example.com/images/ip-address-management.jpg" alt="IP Address Management" class="project-image" />
+      <div class="project-content">
+        <h2 class="project-title">IP Address Management</h2>
+        <p class="project-description">Implemented IPAM tools to track, allocate, and manage IP addresses across large-scale enterprise networks effectively.</p>
+        <a href="https://en.wikipedia.org/wiki/IP_address_management" target="_blank" rel="noopener" class="project-link">View Project</a>
+      </div>
+    </article>
+
+    <!-- Project 9 -->
+    <article class="project-card" tabindex="0">
+      <img src="https://www.example.com/images/wifi-optimization.jpg" alt="WiFi Optimization" class="project-image" />
+      <div class="project-content">
+        <h2 class="project-title">WiFi Network Optimization</h2>
+        <p class="project-description">Optimized WiFi networks in a corporate environment using Aruba access points and RF spectrum analysis tools.</p>
+        <a href="https://www.arubanetworks.com/products/wireless/" target="_blank" rel="noopener" class="project-link">View Project</a>
+      </div>
+    </article>
+
+    <!-- Project 10 -->
+    <article class="project-card" tabindex="0">
+      <img src="https://www.example.com/images/network-segmentation.jpg" alt="Network Segmentation" class="project-image" />
+      <div class="project-content">
+        <h2 class="project-title">Network Segmentation</h2>
+        <p class="project-description">Implemented network segmentation using VLANs and ACLs to improve security and traffic management in a multi-tenant environment.</p>
+        <a href="https://en.wikipedia.org/wiki/Network_segmentation" target="_blank" rel="noopener" class="project-link">View Project</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- Google Map Nairobi Kenya -->
+  <section aria-label="Location Map">
+    <h2 style="text-align:center; color:#003366; margin-top: 3rem;">Find Me in Nairobi, Kenya</h2>
+    <div class="map-container" role="region" aria-label="Google Map showing Nairobi, Kenya">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.235852780688!2d36.79905550519326!3d-1.2863890596206895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d70e2a6eb7%3A0xb322df86bc2e91e3!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1688476003035!5m2!1sen!2sus" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Google Map of Nairobi, Kenya"
+      ></iframe>
+    </div>
+  </section>
+
+</div>
+
+<footer class="w3-container w3-center">
+  <p>© 2025 Network Engineer Portfolio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
