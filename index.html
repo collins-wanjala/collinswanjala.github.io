@@ -1,1 +1,463 @@
-Welcome to my website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Portfolio Website</title>
+<style>
+  /* Reset some default styles */
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f9f9f9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 1rem;
+  }
+
+  /* Header and Nav */
+  header {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .logo img {
+    height: 40px;
+    transition: transform 0.3s ease;
+  }
+  .logo:hover img {
+    transform: rotate(10deg);
+  }
+
+  .logo h1 {
+    font-size: 1.7rem;
+    color: #007BFF;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+
+  nav li {
+    margin-left: 2rem;
+  }
+  nav li a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    display: block;
+    transition: color 0.3s ease;
+  }
+
+  nav li a:hover,
+  nav li a:focus {
+    color: #0056b3;
+  }
+
+  /* Mobile Nav */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+  }
+
+  .menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background: #007BFF;
+    margin-bottom: 5px;
+    border-radius: 2px;
+  }
+
+  @media(max-width: 768px) {
+    nav ul {
+      position: absolute;
+      top: 65px;
+      right: 0;
+      background: #fff;
+      flex-direction: column;
+      border-bottom: 1px solid #ddd;
+      display: none;
+      padding: 1rem 0;
+    }
+
+    nav ul.active {
+      display: flex;
+    }
+
+    nav li {
+      margin: 1rem 0;
+      text-align: center;
+      margin-left: 0;
+    }
+
+    .menu-toggle {
+    }
+  }
+
+  /* Sections */
+  section {
+    padding: 3rem 0;
+    flex-grow: 1;
+  }
+
+  /* Home Section */
+  #home {
+    background: url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    color: white;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #home h2 {
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  }
+
+  #home p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+
+  /* About Section */
+  #about .content {
+    max-width: 900px;
+    margin: auto;
+
+  #about h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #007BFF;
+  }
+
+  #about p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+
+  /* Portfolio Section */
+  #portfolio h2 {
+    margin-bottom: 2rem;
+    color: #007BFF;
+  }
+
+  .portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .portfolio-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 300px;
+    flex: 1 1 300px;
+  }
+
+  .portfolio-item h3 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .portfolio-item p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-item a.button {
+    display: inline-block;
+    background: #007BFF;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .portfolio-item a.button:hover {
+    background: #0056b3;
+  }
+
+  /* Contact Section */
+  #contact h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #007BFF;
+  }
+
+  #contact form {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  #contact label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  #contact input,
+  #contact textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+
+  #contact textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  #contact button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  #contact button:hover {
+    background: #0056b3;
+  }
+
+  /* Footer */
+  footer {
+    background: #222;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  footer nav ul li a {
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  footer nav ul li a:hover,
+  footer nav ul li a:focus {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+    color: #888;
+  }
+
+  /* Responsive Footer */
+  @media(max-width: 480px) {
+    footer nav ul {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-wrapper">
+    <div class="logo" tabindex="0">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Logo" />
+      <h1>MyPortfolio</h1>
+    </div>
+
+      <div class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" role="button" tabindex="0" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+        <li><a href="#home" tabindex="0">Home</a></li>
+        <li><a href="#about" tabindex="0">About</a></li>
+        <li><a href="#portfolio" tabindex="0">Portfolio</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Home Section -->
+<section id="home" aria-label="Home">
+  <div class="container">
+    <h2>Welcome to My Portfolio</h2>
+    <p>Hi! I'm a passionate web developer and designer, crafting beautiful and functional digital experiences. Explore my work and get to know me better!</p>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" aria-label="About Me">
+  <div class="container content">
+    <h2>About Me</h2>
+      I'm a full-stack web developer with over 5 years of experience in designing, building, and maintaining websites and web applications. My expertise lies in creating responsive, accessible, and user-friendly designs that meet clients' needs and exceed expectations.
+    </p>
+    <p>
+      I enjoy learning new technologies and constantly improving my skillset. Whether it's front-end frameworks, back-end development, or UX/UI design, I strive to deliver high-quality work with a focus on performance and usability.
+    </p>
+    <p>
+      When I'm not coding, I love blogging about tech trends, sharing tutorials, and contributing to open source projects.
+    </p>
+  </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" aria-label="Portfolio">
+  <div class="container">
+    <h2>Portfolio</h2>
+    <!-- Blog Section -->
+    <div class="portfolio-container">
+      <div class="portfolio-item">
+        <h3>Latest Blog Posts</h3>
+        <p><strong>Understanding Responsive Web Design</strong> - Learn the fundamentals of making your website look great on any device.</p>
+        <p><strong>JavaScript ES2025 Features</strong> - A dive into the newest features and how to use them effectively.</p>
+        <a href="#" class="button" aria-label="Read more blog posts">Read More Blogs</a>
+      </div>
+
+      <!-- Projects Section -->
+        <h3>Featured Projects</h3>
+        <p><strong>Project Alpha</strong> - A sleek e-commerce platform built with React and Node.js, optimized for performance and scalability.</p>
+        <p><strong>Portfolio Website</strong> - A personal portfolio website showcasing skills, projects, and blog posts with responsive design.</p>
+        <a href="#" class="button" aria-label="View more projects">View Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" aria-label="Contact">
+  <div class="container">
+    <h2>Contact Me</h2>
+      <label for="name">Name <span aria-hidden="true" style="color: red;">*</span></label>
+      <input type="text" id="name" name="name" required placeholder="Your full name" aria-required="true" />
+
+      <label for="email">Email <span aria-hidden="true" style="color: red;">*</span></label>
+      <input type="email" id="email" name="email" required placeholder="your.email@example.com" aria-required="true" />
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="Subject of your message" />
+
+      <label for="message">Message <span aria-hidden="true" style="color: red;">*</span></label>
+      <textarea id="message" name="message" required placeholder="Write your message here..." aria-required="true"></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+    <nav aria-label="Footer navigation">
+      <ul>
+        <li><a href="#about" tabindex="0">About</a></li>
+        <li><a href="#portfolio" tabindex="0">Portfolio</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+    <p>© 2025 MyPortfolio. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Toggle mobile menu
+  const menuToggle = document.getElementById('menu-toggle');
+  const navList = document.getElementById('nav-list');
+
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+    menuToggle.setAttribute('aria-expanded', !expanded);
+    navList.classList.toggle('active');
+  });
+
+  // Accessibility: allow toggle with keyboard (Enter or Space)
+  menuToggle.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      menuToggle.click();
+    }
+  });
+  // Optional: Simple form validation before submit (HTML5 handles most)
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', (e) => {
+    if(!form.checkValidity()) {
+      e.preventDefault();
+      alert('Please fill out all required fields correctly.');
+    }
+  });
+</script>
+
+</body>
+</html>
+
