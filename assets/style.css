@@ -1,0 +1,69 @@
+/* General footer styles */
+footer {
+  background-color: #222;
+  color: #eee;
+  padding: 25px 15px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.6);
+}
+
+/* Navigation menu styling */
+footer nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  flex-wrap: wrap;
+}
+
+footer nav ul li a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+footer nav ul li a:hover,
+footer nav ul li a:focus {
+  color: #1da1f2; /* Twitter blue */
+  outline: none;
+}
+
+/* Social icons container */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* Social icon styles */
+.social-icons a {
+  color: #eee;
+  font-size: 1.8rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover,
+.social-icons a:focus {
+  color: #1da1f2;
+  outline: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  footer nav ul {
+    gap: 20px;
+  }
+
+  footer nav ul li a {
+    font-size: 1rem;
+  }
+
+  .social-icons {
+    gap: 20px;
+  }
+}
