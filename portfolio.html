@@ -4,241 +4,371 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Network Engineer Portfolio</title>
-
-<!-- W3.CSS for styling -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-
 <style>
   body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background: #f0f4f8;
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
+    color: #222;
   }
-  header, footer {
-    background: #003366;
+  header {
+    background: #004080;
     color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
-  header h1, footer p {
-    margin: 0.5rem;
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    animation: glow 3s ease-in-out infinite alternate;
   }
-  .container {
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #00f, 0 0 20px #00f; }
+    to { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
+  }
+  main {
     max-width: 1100px;
-    margin: auto;
-    padding: 1rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  h2 {
+    text-align: center;
+    color: #004080;
+    margin-bottom: 2rem;
+  }
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 1.5rem;
   }
   .project-card {
     background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-  }
-  .project-card:hover {
-    transform: translateY(-8px);
-  }
-  .project-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  .project-content {
-    padding: 1rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .project-title {
     font-weight: 700;
-    color: #003366;
-    margin: 0 0 0.5rem 0;
+    color: #0073e6;
+    margin-bottom: 0.6rem;
   }
-  .project-description {
-    font-size: 0.9rem;
-    color: #555;
+  .project-desc {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: #444;
   }
-  .project-link {
-    margin-top: 1rem;
-    display: inline-block;
-    background: #007acc;
+  .project-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+  .view-btn {
+    background: #004080;
     color: white;
+    border: none;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-decoration: none;
+    border-radius: 5px;
     font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
     transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
   }
-  .project-link:hover {
-    background: #004a80;
+  .view-btn:hover {
+    background: #002c5c;
   }
-  /* Responsive grid */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 1.5rem;
+  .project-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
   }
-  /* WWW animation */
-  .animated-www {
-    font-weight: 900;
-    font-size: 3rem;
+  /* Map container with reduced size */
+  #map-container {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1rem;
     text-align: center;
-    margin: 2rem 0;
-    color: #007acc;
-    letter-spacing: 10px;
-    animation: wave 3s ease-in-out infinite;
   }
-  @keyframes wave {
-    0%, 100% { letter-spacing: 10px; color: #007acc; }
-    50% { letter-spacing: 25px; color: #004a80; }
+  #map {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 0.15);
+    margin: auto;
   }
 
-  /* Responsive iframe for Google map */
-  .map-container {
-    position: relative;
-    overflow: hidden;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    margin: 2rem 0;
+  /* Footer */
+  footer {
+    background: #00264d;
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
-  .map-container iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
+  footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+  }
+  footer nav a {
+    color: #aad4ff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  footer nav a:hover {
+    color: white;
+  }
+  .social-icons {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .social-icons a {
+    color: #aad4ff;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .social-icons a:hover {
+    color: #00ffff;
+  }
+  /* Responsive tweaks */
+  @media (max-width: 600px) {
+    .project-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    footer {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+    footer nav ul {
+      justify-content: center;
+    }
   }
 </style>
+<!-- FontAwesome CDN for social icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<header class="w3-container w3-center">
-  <h1>My Network Engineer Portfolio</h1>
+<header>
+  <h1>Network Engineer Portfolio</h1>
 </header>
 
-<div class="container">
-
-  <div class="animated-www">WWW</div>
-
-  <section aria-label="Projects" class="projects-grid">
-
-    <!-- Project 1 -->
+<main>
+  <h2>My Projects & Case Studies</h2>
+  <section class="projects" aria-label="Network engineering projects">
+    <!-- Each project -->
     <article class="project-card" tabindex="0">
-      <img src="https://www.example.com/images/aws-vpc.jpg" alt="AWS VPC Setup" class="project-image" />
-      <div class="project-content">
-        <h2 class="project-title">AWS VPC Setup</h2>
-        <p class="project-description">Designed and deployed a secure, scalable Virtual Private Cloud with public and private subnets, routing tables, and NAT gateways.</p>
-        <a href="https://aws.amazon.com/vpc/" target="_blank" rel="noopener" class="project-link">View Project</a>
+      <div>
+        <h3 class="project-title">AWS VPC Setup</h3>
+        <p class="project-desc">
+          Designed and deployed secure VPCs with public and private subnets, NAT Gateways, and custom route tables.
+        </p>
+      </div>
+      <div class="project-footer">
+        <a href="https://aws.amazon.com/vpc/" target="_blank" rel="noopener" class="view-btn" aria-label="View AWS VPC Setup project">
+          View Project
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888847.png" alt="AWS logo" class="project-img" />
+        </a>
       </div>
     </article>
 
-    <!-- Project 2 -->
     <article class="project-card" tabindex="0">
-      <img src="https://www.example.com/images/fortinet-firewall.jpg" alt="Fortinet Firewall Deployment" class="project-image" />
-      <div class="project-content">
-        <h2 class="project-title">Fortinet Firewall Deployment</h2>
-        <p class="project-description">Implemented a Fortinet firewall solution for enterprise-grade network security with VPN and threat prevention features.</p>
-        <a href="https://www.fortinet.com/products/firewall" target="_blank" rel="noopener" class="project-link">View Project</a>
+      <div>
+        <h3 class="project-title">Fortinet Firewall Deployment</h3>
+        <p class="project-desc">
+          Configured FortiGate firewalls for perimeter security, including VPN tunnels and Intrusion Prevention System.
+        </p>
+      </div>
+      <div class="project-footer">
+        <a href="https://www.fortinet.com/products/next-generation-firewall" target="_blank" rel="noopener" class="view-btn" aria-label="View Fortinet Firewall Deployment project">
+          View Project
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="Fortinet logo" class="project-img" />
+        </a>
       </div>
     </article>
 
-    <!-- Project 3 -->
     <article class="project-card" tabindex="0">
-      <img src="https://www.example.com/images/cisco-switching.jpg" alt="Cisco Switching Setup" class="project-image" />
-      <div class="project-content">
-        <h2 class="project-title">Cisco Switching Setup</h2>
-        <p class="project-description">Configured Cisco Catalyst switches with VLAN segmentation and QoS to optimize network traffic flow in a large campus environment.</p>
-        <a href="https://www.cisco.com/c/en/us/products/switches/index.html" target="_blank" rel="noopener" class="project-link">View Project</a>
+      <div>
+        <h3 class="project-title">Cisco Network Automation</h3>
+        <p class="project-desc">
+          Automated Cisco switch and router configurations using Python and Ansible, improving deployment speed by 40%.
+        </p>
+      </div>
+      <div class="project-footer">
+        <a href="https://www.cisco.com/c/en/us/solutions/enterprise-networks/automation.html" target="_blank" rel="noopener" class="view-btn" aria-label="View Cisco Network Automation project">
+          View Project
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Cisco logo" class="project-img" />
+        </a>
       </div>
     </article>
 
-    <!-- Project 4 -->
     <article class="project-card" tabindex="0">
-      <img src="https://www.example.com/images/network-monitoring.jpg" alt="Network Monitoring Solution" class="project-image" />
-      <div class="project-content">
-        <h2 class="project-title">Network Monitoring Solution</h2>
-        <p class="project-description">Deployed SolarWinds network monitoring to ensure uptime and optimize performance with real-time alerts and analytics.</p>
-        <a href="https://www.solarwinds.com/network-performance-monitor" target="_blank" rel="noopener" class="project-link">View Project</a>
+      <div>
+        <h3 class="project-title">SD-WAN Deployment</h3>
+        <p class="project-desc">
+          Implemented a secure SD-WAN solution for a multinational company improving bandwidth utilization and failover.
+        </p>
+      </div>
+      <div class="project-footer">
+        <a href="https://www.cisco.com/c/en/us/solutions/enterprise-networks/sd-wan/index.html" target="_blank" rel="noopener" class="view-btn" aria-label="View SD-WAN Deployment project">
+          View Project
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="SD-WAN logo" class="project-img" />
+        </a>
       </div>
     </article>
 
-    <!-- Project 5 -->
     <article class="project-card" tabindex="0">
-      <img src="https://www.example.com/images/vpn-setup.jpg" alt="VPN Setup" class="project-image" />
-      <div class="project-content">
-        <h2 class="project-title">Site-to-Site VPN Setup</h2>
-        <p class="project-description">Configured a secure site-to-site VPN tunnel between remote offices using Cisco ASA firewalls for encrypted communication.</p>
-        <a href="https://www.cisco.com/c/en/us/products/security/asa-firewall/index.html" target="_blank" rel="noopener" class="project-link">View Project</a>
+      <div>
+        <h3 class="project-title">MPLS Network Design</h3>
+        <p class="project-desc">
+          Designed and configured MPLS backbone for enterprise clients ensuring optimized traffic flow and redundancy.
+        </p>
+      </div>
+      <div class="project-footer">
+        <a href="https://www.juniper.net/us/en/dm/mpls.html" target="_blank" rel="noopener" class="view-btn" aria-label="View MPLS Network Design project">
+          View Project
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888852.png" alt="Juniper logo" class="project-img" />
+        </a>
       </div>
     </article>
 
-    <!-- Project 6 -->
     <article class="project-card" tabindex="0">
-      <img src="https://www.example.com/images/dhcp-implementation.jpg" alt="DHCP Implementation" class="project-image" />
-      <div class="project-content">
-        <h2 class="project-title">DHCP Server Implementation</h2>
-        <p class="project-description">Implemented centralized DHCP servers to automate IP address allocation and reduce configuration errors across multiple subnets.</p>
-        <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol" target="_blank" rel="noopener" class="project-link">View Project</a>
+      <div>
+        <h3 class="project-title">Wireless LAN Optimization</h3>
+        <p class="project-desc">
+          Optimized enterprise WLAN using Cisco Meraki solutions increasing coverage and reducing interference.
+        </p>
+      </div>
+      <div class="project-footer">
+        <a href="https://meraki.cisco.com/" target="_blank" rel="noopener" class="view-btn" aria-label="View Wireless LAN Optimization project">
+          View Project
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Meraki logo" class="project-img" />
+        </a>
       </div>
     </article>
 
-    <!-- Project 7 -->
     <article class="project-card" tabindex="0">
-      <img src="https://www.example.com/images/fortigate-vpn.jpg" alt="Fortigate VPN Setup" class="project-image" />
-      <div class="project-content">
-        <h2 class="project-title">Fortigate VPN Setup</h2>
-        <p class="project-description">Configured Fortigate SSL VPN for secure remote access with multi-factor authentication and centralized management.</p>
-        <a href="https://www.fortinet.com/products/vpn" target="_blank" rel="noopener" class="project-link">View Project</a>
+      <div>
+        <h3 class="project-title">Network Monitoring with Nagios</h3>
+        <p class="project-desc">
+          Set up Nagios monitoring for 24/7 network uptime alerts and performance analytics.
+        </p>
+      </div>
+      <div class="project-footer">
+        <a href="https://www.nagios.org/" target="_blank" rel="noopener" class="view-btn" aria-label="View Network Monitoring with Nagios project">
+          View Project
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888882.png" alt="Nagios logo" class="project-img" />
+        </a>
       </div>
     </article>
 
-    <!-- Project 8 -->
     <article class="project-card" tabindex="0">
-      <img src="https://www.example.com/images/ip-address-management.jpg" alt="IP Address Management" class="project-image" />
-      <div class="project-content">
-        <h2 class="project-title">IP Address Management</h2>
-        <p class="project-description">Implemented IPAM tools to track, allocate, and manage IP addresses across large-scale enterprise networks effectively.</p>
-        <a href="https://en.wikipedia.org/wiki/IP_address_management" target="_blank" rel="noopener" class="project-link">View Project</a>
+      <div>
+        <h3 class="project-title">VoIP Network Implementation</h3>
+        <p class="project-desc">
+          Implemented Cisco VoIP solutions for a call center, improving call quality and reducing costs.
+        </p>
+      </div>
+      <div class="project-footer">
+        <a href="https://www.cisco.com/c/en/us/solutions/collaboration/voice-video/index.html" target="_blank" rel="noopener" class="view-btn" aria-label="View VoIP Network Implementation project">
+          View Project
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Cisco logo" class="project-img" />
+        </a>
       </div>
     </article>
 
-    <!-- Project 9 -->
     <article class="project-card" tabindex="0">
-      <img src="https://www.example.com/images/wifi-optimization.jpg" alt="WiFi Optimization" class="project-image" />
-      <div class="project-content">
-        <h2 class="project-title">WiFi Network Optimization</h2>
-        <p class="project-description">Optimized WiFi networks in a corporate environment using Aruba access points and RF spectrum analysis tools.</p>
-        <a href="https://www.arubanetworks.com/products/wireless/" target="_blank" rel="noopener" class="project-link">View Project</a>
+      <div>
+        <h3 class="project-title">Data Center Network Migration</h3>
+        <p class="project-desc">
+          Planned and executed migration of data center network infrastructure with zero downtime.
+        </p>
+      </div>
+      <div class="project-footer">
+        <a href="#" target="_blank" rel="noopener" class="view-btn" aria-label="View Data Center Network Migration project">
+          View Project
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888843.png" alt="Data Center icon" class="project-img" />
+        </a>
       </div>
     </article>
 
-    <!-- Project 10 -->
     <article class="project-card" tabindex="0">
-      <img src="https://www.example.com/images/network-segmentation.jpg" alt="Network Segmentation" class="project-image" />
-      <div class="project-content">
-        <h2 class="project-title">Network Segmentation</h2>
-        <p class="project-description">Implemented network segmentation using VLANs and ACLs to improve security and traffic management in a multi-tenant environment.</p>
-        <a href="https://en.wikipedia.org/wiki/Network_segmentation" target="_blank" rel="noopener" class="project-link">View Project</a>
+      <div>
+        <h3 class="project-title">Network Security Audit</h3>
+        <p class="project-desc">
+          Conducted comprehensive security audits and vulnerability assessments for enterprise networks.
+        </p>
+      </div>
+      <div class="project-footer">
+        <a href="#" target="_blank" rel="noopener" class="view-btn" aria-label="View Network Security Audit project">
+          View Project
+          <img src="https://cdn-icons-png.flaticon.com/512/565/565547.png" alt="Security icon" class="project-img" />
+        </a>
       </div>
     </article>
-
   </section>
 
-  <!-- Google Map Nairobi Kenya -->
-  <section aria-label="Location Map">
-    <h2 style="text-align:center; color:#003366; margin-top: 3rem;">Find Me in Nairobi, Kenya</h2>
-    <div class="map-container" role="region" aria-label="Google Map showing Nairobi, Kenya">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.235852780688!2d36.79905550519326!3d-1.2863890596206895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d70e2a6eb7%3A0xb322df86bc2e91e3!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1688476003035!5m2!1sen!2sus" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Google Map of Nairobi, Kenya"
-      ></iframe>
-    </div>
+  <!-- Google Map -->
+  <section id="map-container" aria-label="Map showing Nairobi, Kenya">
+    <h2>Location: Nairobi, Kenya</h2>
+    <iframe 
+      id="map" 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.993890182232!2d36.77064032610629!3d-1.2832538294341463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f117b031fdb9d%3A0xd328d26079d5223e!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1698941680014!5m2!1sen!2sus" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade" 
+      aria-hidden="false" 
+      tabindex="0"
+    ></iframe>
   </section>
+</main>
 
-</div>
-
-<footer class="w3-container w3-center">
-  <p>© 2025 Network Engineer Portfolio. All rights reserved.</p>
+<footer>
+  <nav aria-label="Footer navigation">
+    <ul>
+      <li><a href="#home" tabindex="0">Home</a></li>
+      <li><a href="#about" tabindex="0">About</a></li>
+      <li><a href="#portfolio" tabindex="0">Portfolio</a></li>
+      <li><a href="#contact" tabindex="0">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="social-icons" aria-label="Social media links">
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/yourprofile" target="_blank" rel="noopener" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
 </footer>
 
 </body>
