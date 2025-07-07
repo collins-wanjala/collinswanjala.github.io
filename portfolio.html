@@ -1,232 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Network Engineer Portfolio</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-<style>
-  body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: #f0f4f8;
-    margin: 0;
-    padding: 0;
-    color: #222;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AWS Portfolio | Network Engineer</title>
 
-  header {
-    background: #004080;
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  header h1 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 2rem;
-    letter-spacing: 2px;
-    animation: glow 3s ease-in-out infinite alternate;
-  }
-
-  header img {
-    height: 50px;
-    cursor: pointer;
-  }
-
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 10px #00f, 0 0 20px #00f;
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f8fb;
     }
-    to {
-      text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+
+    /* Header */
+    header {
+      background-color: #232f3e;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-  }
 
-  main {
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
+    header img {
+      height: 50px;
+      cursor: pointer;
+    }
 
-  h2 {
-    text-align: center;
-    color: #004080;
-    margin-bottom: 2rem;
-  }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
 
-  .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-  }
+    /* Project Section */
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
 
-  .project-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem 1.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.7s ease-in-out;
-  }
+    h2 {
+      text-align: center;
+      color: #232f3e;
+      margin-bottom: 2rem;
+    }
 
-  .project-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
 
-  .project-title {
-    font-weight: 700;
-    color: #0073e6;
-    margin-bottom: 0.6rem;
-    font-size: 1.2rem;
-  }
+    .project-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
 
-  .project-desc {
-    flex-grow: 1;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-    color: #444;
-  }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
 
-  .project-footer {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
+    .project-card img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
 
-  .view-btn {
-    background: #004080;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #0073bb;
+      margin-bottom: 0.5rem;
+    }
 
-  .view-btn:hover {
-    background: #002c5c;
-  }
+    .project-desc {
+      font-size: 0.95rem;
+      color: #444;
+    }
 
-  .project-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    object-fit: cover;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  }
+    /* AWS Cloud Animation */
+    .cloud-animation {
+      text-align: center;
+      margin: 3rem 0;
+    }
 
-  .map-container {
-    margin: 3rem auto;
-    text-align: center;
-  }
+    .cloud {
+      width: 120px;
+      height: 70px;
+      background: #fff;
+      border-radius: 100px;
+      position: relative;
+      margin: 0 auto;
+      animation: float 3s ease-in-out infinite;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
 
-  .map-container iframe {
-    width: 100%;
-    max-width: 900px;
-    height: 400px;
-    border: 0;
-    border-radius: 8px;
-  }
+    .cloud:before, .cloud:after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      width: 60px;
+      height: 60px;
+      top: -20px;
+      border-radius: 50%;
+    }
 
-  footer {
-    background: #004080;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-  }
+    .cloud:before {
+      left: -30px;
+    }
 
-  .social-icons {
-    margin-top: 0.5rem;
-  }
+    .cloud:after {
+      right: -30px;
+    }
 
-  .social-icons a {
-    color: white;
-    text-decoration: none;
-    margin: 0 0.6rem;
-    font-size: 1.4rem;
-    transition: color 0.3s;
-  }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
-  .social-icons a:hover {
-    color: #00ffff;
-  }
-</style>
+    /* Google Maps */
+    .map-container {
+      width: 100%;
+      height: 300px;
+      margin-top: 2rem;
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #232f3e;
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    .social-links a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #00acee;
+    }
+
+  </style>
 </head>
 <body>
 
+<!-- Header with Logo -->
 <header>
-  <img src="logo1.jpg" alt="Logo" id="logo" />
-  <h1>Network Engineer Portfolio</h1>
+  <img src="logo1.jpg" alt="Logo" id="homeLogo">
+  <h1>AWS Projects Portfolio</h1>
 </header>
 
+<!-- Main Content -->
 <main>
-  <h2>Highlighted Projects</h2>
-  <section class="projects" aria-label="Key Projects">
-    <!-- Project Cards here (same as your original) -->
-    <!-- Only 1 shown for brevity -->
-    <article class="project-card">
-      <h3 class="project-title">AWS Free Tier Setup</h3>
-      <p class="project-desc">
-        Created and configured an AWS Free Tier account, set up EC2 instances, S3 buckets, IAM users, and basic security groups for cloud labs.
-      </p>
-      <div class="project-footer">
-        <a href="https://docs.google.com/document/d/1BJ1aqPFAWXySmDlM0h9GHlnRdZYCf1tUVJJs9ZhClYU/edit?tab=t.0" target="_blank" class="view-btn">
-          View Project
-          <img src="logo1.jpg" alt="AWS logo" class="project-img" />
-        </a>
-      </div>
-    </article>
+  <h2>My AWS Projects</h2>
+  <section class="projects">
+    <div class="project-card">
+      <img src="aws1.jpg" alt="AWS EC2 Project">
+      <div class="project-title">EC2 Deployment Lab</div>
+      <div class="project-desc">Launched and configured EC2 instances with security groups, Elastic IPs, and remote SSH access.</div>
+    </div>
+
+    <div class="project-card">
+      <img src="aws2.jpg" alt="AWS S3 Project">
+      <div class="project-title">S3 Static Website Hosting</div>
+      <div class="project-desc">Hosted a static portfolio website on Amazon S3 with public access policies and versioning.</div>
+    </div>
+
+    <div class="project-card">
+      <img src="aws3.jpg" alt="AWS IAM Project">
+      <div class="project-title">IAM User & Role Management</div>
+      <div class="project-desc">Created IAM users, groups, and roles with fine-grained permissions using AWS policies.</div>
+    </div>
+
+    <div class="project-card">
+      <img src="aws4.jpg" alt="AWS CloudWatch Project">
+      <div class="project-title">CloudWatch Monitoring</div>
+      <div class="project-desc">Enabled CloudWatch monitoring for EC2 instances with custom alarms, metrics, and logs.</div>
+    </div>
   </section>
 
-  <div class="map-container">
-    <h2>Our Location</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.8030339119245!2d34.75449965631428!3d-0.10220629029067624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182aa5e2c830a6a1%3A0x3c4902f259364c43!2sMaseno%20University!5e0!3m2!1sen!2ske!4v1706454567890!5m2!1sen!2ske" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- Cloud Animation -->
+  <div class="cloud-animation">
+    <div class="cloud"></div>
+    <p style="color: #888;">Simulated AWS Cloud</p>
   </div>
+
+  <!-- Google Map -->
+  <iframe 
+    class="map-container"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.084451063923!2d36.821946!3d-1.292066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d55555c555%3A0x6b1e9ec3c7e8152e!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1688888888888"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
 </main>
 
+<!-- Footer -->
 <footer>
-  <p>Connect with me on:</p>
-  <div class="social-icons">
-    <a href="https://twitter.com" target="_blank">🐦</a>
-    <a href="https://linkedin.com" target="_blank">🔗</a>
-    <a href="https://github.com" target="_blank">🐙</a>
-    <a href="mailto:youremail@example.com">✉️</a>
+  <p>Connect with Me</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="mailto:youremail@example.com" title="Email"><i class="fas fa-envelope"></i></a>
   </div>
-  <p>&copy; 2025 Network Engineer Portfolio. All rights reserved.</p>
+  <p style="margin-top: 10px;">&copy; 2025 Collins Wanjala. All rights reserved.</p>
 </footer>
 
+<!-- JavaScript for Header Logo Click -->
 <script>
-  // Scroll animation using IntersectionObserver
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.project-card').forEach(card => {
-    observer.observe(card);
-  });
-
-  // Redirect to index.html when logo is clicked
-  document.getElementById('logo').addEventListener('click', function () {
-    window.location.href = 'index.html';
+  document.getElementById("homeLogo").addEventListener("click", function () {
+    window.location.href = "index.html";
   });
 </script>
 
