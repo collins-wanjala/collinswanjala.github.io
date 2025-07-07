@@ -16,7 +16,6 @@
       background-color: #f4f8fb;
     }
 
-    /* Header */
     header {
       background-color: #232f3e;
       color: white;
@@ -24,9 +23,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
 
     header img {
@@ -39,7 +35,6 @@
       font-size: 1.5rem;
     }
 
-    /* Project Section */
     main {
       max-width: 1100px;
       margin: 2rem auto;
@@ -64,6 +59,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 1rem;
       transition: transform 0.3s ease;
+      position: relative;
     }
 
     .project-card:hover {
@@ -88,7 +84,23 @@
       color: #444;
     }
 
-    /* AWS Cloud Animation */
+    .project-more {
+      display: none;
+      font-size: 0.9rem;
+      color: #333;
+      margin-top: 0.5rem;
+    }
+
+    .read-more-btn {
+      background: #0073bb;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 0.7rem;
+    }
+
     .cloud-animation {
       text-align: center;
       margin: 3rem 0;
@@ -128,7 +140,6 @@
       50% { transform: translateY(-10px); }
     }
 
-    /* Google Maps */
     .map-container {
       width: 100%;
       height: 300px;
@@ -136,30 +147,64 @@
       border: none;
     }
 
-    /* Footer */
+    /* Footer Layout */
     footer {
       background: #232f3e;
       color: white;
-      padding: 1.5rem 1rem;
-      text-align: center;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
     }
 
-    .social-links a {
+    .footer-left, .footer-right {
+      flex: 1 1 300px;
+      padding: 1rem;
+    }
+
+    .footer-left ul, .footer-right ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-left li, .footer-right li {
+      margin: 10px 0;
+    }
+
+    .footer-left a, .footer-right a {
       color: white;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
     }
 
-    .social-links a:hover {
-      color: #00acee;
+    .footer-right i {
+      margin-right: 8px;
     }
 
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #444;
+      margin-top: 1rem;
+      color: #ccc;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      footer {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 <body>
 
-<!-- Header with Logo -->
+<!-- Header -->
 <header>
   <img src="logo1.jpg" alt="Logo" id="homeLogo">
   <h1>AWS Projects Portfolio</h1>
@@ -169,29 +214,43 @@
 <main>
   <h2>My AWS Projects</h2>
   <section class="projects">
+
+    <!-- Project 1 -->
     <div class="project-card">
       <img src="aws1.jpg" alt="AWS EC2 Project">
       <div class="project-title">EC2 Deployment Lab</div>
-      <div class="project-desc">Launched and configured EC2 instances with security groups, Elastic IPs, and remote SSH access.</div>
+      <div class="project-desc">Launched EC2 with SSH, security groups, EIPs.</div>
+      <div class="project-more">Automated launch templates, used cloud-init for startup scripts, configured with Elastic Load Balancer and CloudWatch alarms for real-time monitoring.</div>
+      <button class="read-more-btn" onclick="toggleMore(this)">Read More</button>
     </div>
 
+    <!-- Project 2 -->
     <div class="project-card">
       <img src="aws2.jpg" alt="AWS S3 Project">
       <div class="project-title">S3 Static Website Hosting</div>
-      <div class="project-desc">Hosted a static portfolio website on Amazon S3 with public access policies and versioning.</div>
+      <div class="project-desc">Hosted a static site using S3 and bucket policies.</div>
+      <div class="project-more">Implemented routing rules, used Route 53 for custom domain, enabled CloudFront distribution with SSL certificates for secure delivery.</div>
+      <button class="read-more-btn" onclick="toggleMore(this)">Read More</button>
     </div>
 
+    <!-- Project 3 -->
     <div class="project-card">
       <img src="aws3.jpg" alt="AWS IAM Project">
       <div class="project-title">IAM User & Role Management</div>
-      <div class="project-desc">Created IAM users, groups, and roles with fine-grained permissions using AWS policies.</div>
+      <div class="project-desc">Created IAM users, policies, MFA, and groups.</div>
+      <div class="project-more">Managed service roles for EC2 access, implemented least privilege policy design and simulated policy evaluation with IAM Access Analyzer.</div>
+      <button class="read-more-btn" onclick="toggleMore(this)">Read More</button>
     </div>
 
+    <!-- Project 4 -->
     <div class="project-card">
       <img src="aws4.jpg" alt="AWS CloudWatch Project">
       <div class="project-title">CloudWatch Monitoring</div>
-      <div class="project-desc">Enabled CloudWatch monitoring for EC2 instances with custom alarms, metrics, and logs.</div>
+      <div class="project-desc">Enabled metrics and alarms for EC2 logs.</div>
+      <div class="project-more">Configured custom dashboards, created SNS notifications for threshold breaches, integrated with Lambda for automatic remediation.</div>
+      <button class="read-more-btn" onclick="toggleMore(this)">Read More</button>
     </div>
+
   </section>
 
   <!-- Cloud Animation -->
@@ -212,18 +271,44 @@
 
 <!-- Footer -->
 <footer>
-  <p>Connect with Me</p>
-  <div class="social-links">
-    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-    <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="mailto:youremail@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+  <div class="footer-left">
+    <h3>Navigation</h3>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
   </div>
-  <p style="margin-top: 10px;">&copy; 2025 Collins Wanjala. All rights reserved.</p>
+
+  <div class="footer-right">
+    <h3>Connect</h3>
+    <ul>
+      <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+      <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+      <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+      <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+      <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 Collins Wanjala. All rights reserved.
+  </div>
 </footer>
 
-<!-- JavaScript for Header Logo Click -->
 <script>
+  function toggleMore(button) {
+    const moreText = button.previousElementSibling;
+    if (moreText.style.display === "block") {
+      moreText.style.display = "none";
+      button.textContent = "Read More";
+    } else {
+      moreText.style.display = "block";
+      button.textContent = "Read Less";
+    }
+  }
+
   document.getElementById("homeLogo").addEventListener("click", function () {
     window.location.href = "index.html";
   });
