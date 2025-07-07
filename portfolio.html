@@ -9,9 +9,11 @@
   body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background: #f0f4f8;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     color: #222;
   }
+
   header {
     background: #004080;
     color: white;
@@ -21,6 +23,7 @@
     top: 0;
     z-index: 1000;
   }
+
   header h1 {
     margin: 0;
     font-weight: 700;
@@ -28,51 +31,71 @@
     letter-spacing: 2px;
     animation: glow 3s ease-in-out infinite alternate;
   }
+
   @keyframes glow {
-    from { text-shadow: 0 0 10px #00f, 0 0 20px #00f; }
-    to { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
+    from {
+      text-shadow: 0 0 10px #00f, 0 0 20px #00f;
+    }
+    to {
+      text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+    }
   }
+
   main {
     max-width: 1100px;
     margin: 2rem auto;
     padding: 0 1rem;
   }
+
   h2 {
     text-align: center;
     color: #004080;
     margin-bottom: 2rem;
   }
+
   .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
   }
+
   .project-card {
     background: white;
     border-radius: 8px;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
-    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 1.5rem 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s ease-in-out;
   }
+
+  .project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .project-title {
     font-weight: 700;
     color: #0073e6;
     margin-bottom: 0.6rem;
+    font-size: 1.2rem;
   }
+
   .project-desc {
     flex-grow: 1;
     margin-bottom: 1rem;
     font-size: 0.95rem;
     color: #444;
   }
+
   .project-footer {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     gap: 0.75rem;
   }
+
   .view-btn {
     background: #004080;
     color: white;
@@ -87,90 +110,19 @@
     align-items: center;
     gap: 0.6rem;
   }
+
   .view-btn:hover {
     background: #002c5c;
   }
+
   .project-img {
     width: 40px;
     height: 40px;
     border-radius: 4px;
     object-fit: cover;
-    box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
-  }
-  /* Map container with reduced size */
-  #map-container {
-    max-width: 1100px;
-    margin: 3rem auto;
-    padding: 0 1rem;
-    text-align: center;
-  }
-  #map {
-    width: 100%;
-    max-width: 600px;
-    height: 300px;
-    border-radius: 8px;
-    box-shadow: 0 3px 12px rgb(0 0 0 / 0.15);
-    margin: auto;
-  }
-
-  /* Footer */
-  footer {
-    background: #00264d;
-    color: white;
-    padding: 1.5rem 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-  footer nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 2rem;
-  }
-  footer nav a {
-    color: #aad4ff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-  footer nav a:hover {
-    color: white;
-  }
-  .social-icons {
-    display: flex;
-    gap: 1.5rem;
-  }
-  .social-icons a {
-    color: #aad4ff;
-    font-size: 1.3rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  .social-icons a:hover {
-    color: #00ffff;
-  }
-  /* Responsive tweaks */
-  @media (max-width: 600px) {
-    .project-footer {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-    footer {
-      flex-direction: column;
-      gap: 1rem;
-      text-align: center;
-    }
-    footer nav ul {
-      justify-content: center;
-    }
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   }
 </style>
-<!-- FontAwesome CDN for social icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -179,177 +131,78 @@
 </header>
 
 <main>
-  <h2>My Projects & Case Studies</h2>
-  <section class="projects" aria-label="Network engineering projects">
-    <!-- Each project -->
-    <article class="project-card" tabindex="0">
-      <div>
-        <h3 class="project-title">AWS Free tier account</h3>
-        <p class="project-desc">
-          Managed to create an AWS free tier account.
-        </p>
-      </div>
+  <h2>Highlighted Projects</h2>
+  <section class="projects" aria-label="Key Projects">
+
+    <article class="project-card">
+      <h3 class="project-title">AWS Free Tier Setup</h3>
+      <p class="project-desc">
+        Created and configured an AWS Free Tier account, set up EC2 instances, S3 buckets, IAM users, and basic security groups for cloud labs.
+      </p>
       <div class="project-footer">
-        <a href="https://docs.google.com/document/d/1BJ1aqPFAWXySmDlM0h9GHlnRdZYCf1tUVJJs9ZhClYU/edit?tab=t.0" target="_blank" rel="noopener" class="view-btn" aria-label="View AWS Free tier account creation">
+        <a href="https://docs.google.com/document/d/1BJ1aqPFAWXySmDlM0h9GHlnRdZYCf1tUVJJs9ZhClYU/edit?tab=t.0" target="_blank" class="view-btn">
           View Project
           <img src="logo1.jpg" alt="AWS logo" class="project-img" />
         </a>
       </div>
     </article>
 
-    <article class="project-card" tabindex="0">
-      <div>
-        <h3 class="project-title">Fortinet Firewall Deployment</h3>
-        <p class="project-desc">
-          Configured FortiGate firewalls for perimeter security, including VPN tunnels and Intrusion Prevention System.
-        </p>
-      </div>
+    <article class="project-card">
+      <h3 class="project-title">FortiGate Firewall Lab</h3>
+      <p class="project-desc">
+        Deployed FortiGate in a simulated environment using GNS3. Configured firewall policies, VPN tunnels, IPS, and web filtering.
+      </p>
       <div class="project-footer">
-        <a href="https://www.fortinet.com/products/next-generation-firewall" target="_blank" rel="noopener" class="view-btn" aria-label="View Fortinet Firewall Deployment project">
+        <a href="https://www.fortinet.com/products/next-generation-firewall" target="_blank" class="view-btn">
           View Project
           <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="Fortinet logo" class="project-img" />
         </a>
       </div>
     </article>
 
-    <article class="project-card" tabindex="0">
-      <div>
-        <h3 class="project-title">Cisco Network Automation</h3>
-        <p class="project-desc">
-          Automated Cisco switch and router configurations using Python and Ansible, improving deployment speed by 40%.
-        </p>
-      </div>
+    <article class="project-card">
+      <h3 class="project-title">Cisco SD-WAN Deployment</h3>
+      <p class="project-desc">
+        Implemented secure Cisco SD-WAN setup across multiple branch offices. Improved bandwidth utilization, traffic shaping, and redundancy.
+      </p>
       <div class="project-footer">
-        <a href="https://www.cisco.com/c/en/us/solutions/enterprise-networks/automation.html" target="_blank" rel="noopener" class="view-btn" aria-label="View Cisco Network Automation project">
+        <a href="https://www.cisco.com/c/en/us/solutions/enterprise-networks/sd-wan/index.html" target="_blank" class="view-btn">
           View Project
-          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Cisco logo" class="project-img" />
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Cisco SD-WAN" class="project-img" />
         </a>
       </div>
     </article>
 
-    <article class="project-card" tabindex="0">
-      <div>
-        <h3 class="project-title">SD-WAN Deployment</h3>
-        <p class="project-desc">
-          Implemented a secure SD-WAN solution for a multinational company improving bandwidth utilization and failover.
-        </p>
-      </div>
+    <article class="project-card">
+      <h3 class="project-title">MPLS Network Simulation</h3>
+      <p class="project-desc">
+        Designed an MPLS backbone in GNS3 using Cisco routers and VRFs for service provider-level traffic engineering and redundancy.
+      </p>
       <div class="project-footer">
-        <a href="https://www.cisco.com/c/en/us/solutions/enterprise-networks/sd-wan/index.html" target="_blank" rel="noopener" class="view-btn" aria-label="View SD-WAN Deployment project">
+        <a href="https://www.juniper.net/us/en/dm/mpls.html" target="_blank" class="view-btn">
           View Project
-          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="SD-WAN logo" class="project-img" />
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888852.png" alt="MPLS logo" class="project-img" />
         </a>
       </div>
     </article>
 
-    <article class="project-card" tabindex="0">
-      <div>
-        <h3 class="project-title">MPLS Network Design</h3>
-        <p class="project-desc">
-          Designed and configured MPLS backbone for enterprise clients ensuring optimized traffic flow and redundancy.
-        </p>
-      </div>
-      <div class="project-footer">
-        <a href="https://www.juniper.net/us/en/dm/mpls.html" target="_blank" rel="noopener" class="view-btn" aria-label="View MPLS Network Design project">
-          View Project
-          <img src="https://cdn-icons-png.flaticon.com/512/888/888852.png" alt="Juniper logo" class="project-img" />
-        </a>
-      </div>
-    </article>
-
-    <article class="project-card" tabindex="0">
-      <div>
-        <h3 class="project-title">Wireless LAN Optimization</h3>
-        <p class="project-desc">
-          Optimized enterprise WLAN using Cisco Meraki solutions increasing coverage and reducing interference.
-        </p>
-      </div>
-      <div class="project-footer">
-        <a href="index.html" target="_blank" rel="noopener" class="view-btn" aria-label="View Wireless LAN Optimization project">
-          View Project
-          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Meraki logo" class="project-img" />
-        </a>
-      </div>
-    </article>
-
-    <article class="project-card" tabindex="0">
-      <div>
-        <h3 class="project-title">Network Monitoring with Nagios</h3>
-        <p class="project-desc">
-          Set up Nagios monitoring for 24/7 network uptime alerts and performance analytics.
-        </p>
-      </div>
-      <div class="project-footer">
-        <a href="https://www.nagios.org/" target="_blank" rel="noopener" class="view-btn" aria-label="View Network Monitoring with Nagios project">
-          View Project
-          <img src="https://cdn-icons-png.flaticon.com/512/888/888882.png" alt="Nagios logo" class="project-img" />
-        </a>
-      </div>
-    </article>
-
-    <article class="project-card" tabindex="0">
-      <div>
-        <h3 class="project-title">VoIP Network Implementation</h3>
-        <p class="project-desc">
-          Implemented Cisco VoIP solutions for a call center, improving call quality and reducing costs.
-        </p>
-      </div>
-      <div class="project-footer">
-        <a href="https://www.cisco.com/c/en/us/solutions/collaboration/voice-video/index.html" target="_blank" rel="noopener" class="view-btn" aria-label="View VoIP Network Implementation project">
-          View Project
-          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Cisco logo" class="project-img" />
-        </a>
-      </div>
-    </article>
-
-    <article class="project-card" tabindex="0">
-      <div>
-        <h3 class="project-title">Data Center Network Migration</h3>
-        <p class="project-desc">
-          Planned and executed migration of data center network infrastructure with zero downtime.
-        </p>
-      </div>
-      <div class="project-footer">
-        <a href="#" target="_blank" rel="noopener" class="view-btn" aria-label="View Data Center Network Migration project">
-          View Project
-          <img src="https://cdn-icons-png.flaticon.com/512/888/888843.png" alt="Data Center icon" class="project-img" />
-        </a>
-      </div>
-    </article>
-
-    <article class="project-card" tabindex="0">
-      <div>
-        <h3 class="project-title">Network Security Audit</h3>
-        <p class="project-desc">
-          Conducted comprehensive security audits and vulnerability assessments for enterprise networks.
-        </p>
-      </div>
-      <div class="project-footer">
-        <a href="#" target="_blank" rel="noopener" class="view-btn" aria-label="View Network Security Audit project">
-          View Project
-          <img src="https://cdn-icons-png.flaticon.com/512/565/565547.png" alt="Security icon" class="project-img" />
-        </a>
-      </div>
-    </article>
-  </section>
-
-  <!-- Google Map -->
-  <section id="map-container" aria-label="Map showing Nairobi, Kenya">
-    <h2>Location: Nairobi, Kenya</h2>
-    <iframe 
-      id="map" 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.993890182232!2d36.77064032610629!3d-1.2832538294341463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f117b031fdb9d%3A0xd328d26079d5223e!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1698941680014!5m2!1sen!2sus" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade" 
-      aria-hidden="false" 
-      tabindex="0"
-    ></iframe>
   </section>
 </main>
-<link rel="footer.h"
 
+<script>
+  // Scroll animation using IntersectionObserver
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.project-card').forEach(card => {
+    observer.observe(card);
+  });
+</script>
 
 </body>
 </html>
