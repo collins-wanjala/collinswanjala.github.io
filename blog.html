@@ -97,6 +97,12 @@
       margin-top: 0;
     }
 
+    .post-content p.meta {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0.5rem 0 1rem;
+    }
+
     footer {
       background-color: #002855;
       color: white;
@@ -146,7 +152,6 @@
     <p>Trusted by: Amazon AWS, Cisco, Huawei, Fortinet, Google Cloud, Microsoft Azure</p>
   </div>
 
-  <!-- Client Logos -->
   <div style="background-color: #fff; padding: 1rem 0; text-align: center;">
     <h3 style="color: #002855; margin-bottom: 1rem;">Trusted by</h3>
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
@@ -160,34 +165,50 @@
   </div>
 
   <section class="section">
-    <h2>AWS Project Insights</h2>
+    <h2>Latest Blog Posts</h2>
     <div class="blog-posts">
       <div class="post">
-        <img src="https://via.placeholder.com/600x300?text=AWS+EC2+Lab" alt="EC2 Lab" />
+        <img src="project-images/ec2-lab.png" alt="EC2 Lab" />
         <div class="post-content">
-          <h3><a href="blog.html" style="color: #004080; text-decoration: none;">Deploying EC2 on Free Tier</a></h3>
-          <p>Step-by-step guide on launching and securing EC2 instances for lab environments.</p>
+          <h3>Deploying EC2 on AWS Free Tier</h3>
+          <p class="meta">Published on July 7, 2025</p>
+          <p>We created a complete virtual lab using AWS EC2 t2.micro instances. Each server was configured with SSH, firewall rules, and LAMP stack setup. This project demonstrates how to build a test environment quickly using only free-tier services.<br>This is ideal for students and beginners exploring cloud computing environments.</p>
         </div>
       </div>
+
       <div class="post">
-        <img src="https://via.placeholder.com/600x300?text=S3+Storage" alt="S3" />
+        <img src="project-images/s3-hosting.png" alt="S3 Static Hosting" />
         <div class="post-content">
-          <h3><a href="blog.html" style="color: #004080; text-decoration: none;">Configuring S3 for Static Hosting</a></h3>
-          <p>Learn how to create, configure, and secure S3 buckets for static web deployment.</p>
+          <h3>Static Website Hosting with Amazon S3</h3>
+          <p class="meta">Published on July 6, 2025</p>
+          <p>This project involved hosting a portfolio website on Amazon S3. We configured bucket policies, enabled static web hosting, and secured access using IAM policies. The website loads with lightning speed from the S3 bucket.<br>This is a fast and cost-effective way to deliver static sites globally.</p>
         </div>
       </div>
+
       <div class="post">
-        <img src="https://via.placeholder.com/600x300?text=IAM+Users" alt="IAM" />
+        <img src="project-images/iam-users.png" alt="IAM Users" />
         <div class="post-content">
-          <h3><a href="blog.html" style="color: #004080; text-decoration: none;">IAM Best Practices</a></h3>
-          <p>Establish user roles, permission boundaries, and access policies securely in AWS.</p>
+          <h3>Managing IAM Users and Roles</h3>
+          <p class="meta">Published on July 4, 2025</p>
+          <p>We created IAM users with least privilege, configured MFA, and created custom policies. This setup ensures tight control and secure access for developers.<br>Implementing identity best practices is crucial for any cloud deployment.</p>
         </div>
       </div>
+
       <div class="post">
-        <img src="https://via.placeholder.com/600x300?text=CloudWatch" alt="CloudWatch" />
+        <img src="project-images/cloudwatch-monitoring.png" alt="CloudWatch Monitoring" />
         <div class="post-content">
-          <h3><a href="blog.html" style="color: #004080; text-decoration: none;">Monitoring with CloudWatch</a></h3>
-          <p>Set up CloudWatch alarms, logs, and dashboards to keep track of AWS resource health.</p>
+          <h3>CloudWatch Dashboards and Alerts</h3>
+          <p class="meta">Published on July 3, 2025</p>
+          <p>We used CloudWatch to monitor EC2 CPU usage and created alarms that notify via email when usage exceeds 70%. Dashboards visualize logs, metrics, and alerts in real-time.<br>This provides insight into system performance and helps in early troubleshooting.</p>
+        </div>
+      </div>
+
+      <div class="post">
+        <img src="project-images/vpc-subnets.png" alt="VPC Design" />
+        <div class="post-content">
+          <h3>Designing Custom VPC with Subnets</h3>
+          <p class="meta">Published on July 1, 2025</p>
+          <p>This project showcases custom VPC creation with public/private subnets, NAT gateways, and route tables. It forms the base for deploying secure apps across AWS regions.<br>Understanding network segmentation in AWS is key for scalable infrastructure.</p>
         </div>
       </div>
     </div>
