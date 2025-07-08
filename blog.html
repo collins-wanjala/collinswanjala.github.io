@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025 Blog - Cloud & Network Projects</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f7f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #002855;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .marquee {
+      background-color: #e6f2ff;
+      padding: 0.8rem;
+      overflow: hidden;
+      white-space: nowrap;
+      box-shadow: inset 0 0 5px #ccc;
+    }
+
+    .marquee p {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 15s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .section {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      color: #002855;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .post {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .post:hover {
+      transform: scale(1.03);
+    }
+
+    .post img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .post-content {
+      padding: 1rem;
+    }
+
+    .post-content h3 {
+      color: #004080;
+      margin-top: 0;
+    }
+
+    footer {
+      background-color: #002855;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+
+    .footer-column {
+      flex: 1 1 250px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 1rem;
+      border-bottom: 2px solid white;
+      display: inline-block;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-column a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>2025 Blog - Cloud & Network Projects</h1>
+  </header>
+
+  <div class="marquee">
+    <p>Trusted by: Amazon AWS, Cisco, Huawei, Fortinet, Google Cloud, Microsoft Azure</p>
+  </div>
+
+  <section class="section">
+    <h2>AWS Project Insights</h2>
+    <div class="blog-posts">
+      <div class="post">
+        <img src="https://via.placeholder.com/600x300?text=AWS+EC2+Lab" alt="AWS EC2 Lab" />
+        <div class="post-content">
+          <h3>Deploying EC2 on Free Tier</h3>
+          <p>Step-by-step guide on launching and securing EC2 instances for lab environments.</p>
+        </div>
+      </div>
+      <div class="post">
+        <img src="https://via.placeholder.com/600x300?text=S3+Storage" alt="S3 Storage" />
+        <div class="post-content">
+          <h3>Configuring S3 for Static Hosting</h3>
+          <p>Learn how to create, configure, and secure S3 buckets for static web deployment.</p>
+        </div>
+      </div>
+      <div class="post">
+        <img src="https://via.placeholder.com/600x300?text=IAM+Users" alt="IAM Management" />
+        <div class="post-content">
+          <h3>IAM Best Practices</h3>
+          <p>Establish user roles, permission boundaries, and access policies securely in AWS.</p>
+        </div>
+      </div>
+      <div class="post">
+        <img src="https://via.placeholder.com/600x300?text=CloudWatch" alt="Monitoring with CloudWatch" />
+        <div class="post-content">
+          <h3>Monitoring with CloudWatch</h3>
+          <p>Set up CloudWatch alarms, logs, and dashboards to keep track of AWS resource health.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Video Summary of Projects</h2>
+    <div style="text-align:center">
+      <video width="90%" controls autoplay loop muted style="border-radius: 12px;">
+        <source src="https://cdn.pixabay.com/video/2023/07/03/174789-841831790_large.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Benefits of AWS Free Tier</h2>
+    <p style="max-width:800px;margin:auto;text-align:center;font-size:1.1rem;">
+      An AWS Free Tier account provides new users access to popular AWS services free for 12 months, allowing for hands-on learning and prototyping with EC2, S3, Lambda, and RDS. Sign-up involves visiting aws.amazon.com/free, registering with your email, entering billing info, verifying identity, and choosing a support plan—ideal for students, developers, and startups.
+    </p>
+  </section>
+
+  <footer>
+    <div class="footer-column">
+      <h4>Social Media</h4>
+      <ul>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Useful Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
